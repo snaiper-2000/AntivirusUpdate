@@ -1,13 +1,18 @@
 package AntifirusUpdate;
+
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-
+/**
+ * Class download file from the internet
+ *
+ */
 public class DownloadFile {
-	
-	
-	// ךאקאול פאיכ ס ןמלמשü‏ Stream
+	/*
+	 * Method download file from the internet
+	 * download file from assistance Stream
+	 */
     public static void downloadUsingStream(String urlPage, String file) throws IOException{
         URL url = new URL(urlPage);
         BufferedInputStream bis = new BufferedInputStream(url.openStream());

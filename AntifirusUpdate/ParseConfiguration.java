@@ -7,52 +7,17 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * Class parse fail format txt (Configuration Fail)
+ *
+ */
 public class ParseConfiguration {
 	
 	FileReader input;
 	BufferedReader bufRead;
-
-
-	/*public static void main(String[] args) {
-		
-		FileReader input;
-		BufferedReader bufRead;
-		try {
-			input = new FileReader("ConfiguratiomAntivirusUpdate.txt");
-			
-			bufRead = new BufferedReader(input);
-			String myLine = null;
-
-			while ( (myLine = bufRead.readLine()) != null){
-				
-			   if(myLine.contains("patchFiles") == true){
-				   String[] arrayPatchFiles = myLine.split("=");
-				   System.out.println(arrayPatchFiles[1]);
-			   }
-			   
-			   if(myLine.contains("timeDownload") == true){
-				   String[] arrayTimeDownload = myLine.split("=");
-				   System.out.println(arrayTimeDownload[1]);
-				   
-				   //String date = array[0];
-				   SimpleDateFormat sdfDate = new SimpleDateFormat("HH.mm.ss");
-				   Date timeParse = new Date();
-				   timeParse = sdfDate.parse(arrayTimeDownload[1]);
-				   System.out.println("day: "+timeParse.getHours()+" month: "+timeParse.getMinutes()+" year: "+timeParse.getSeconds());
-					
-			   }
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-	}
-	*/
+	/*
+	 * Method parse information patch file
+	 */
 	public String parsePathFail(){
 		String patchFiles = null;
 		try {
@@ -66,7 +31,7 @@ public class ParseConfiguration {
 			   if(myLine.contains("patchFiles") == true){
 				   String[] arrayPatchFiles = myLine.split("=");
 				   patchFiles = arrayPatchFiles[1];
-				   System.out.println(arrayPatchFiles[1]);
+				   //System.out.println("Путь загрузки файла: "+arrayPatchFiles[1]);
 			   }
 			}
 			} catch (FileNotFoundException e) {
@@ -76,7 +41,9 @@ public class ParseConfiguration {
 			} 
 		return patchFiles;
 	}
-	
+	/*
+	 * Method parse information time download
+	 */
 	public Date parseTimeFail(){
 		Date timeParse = new Date();
 		try {
@@ -89,13 +56,9 @@ public class ParseConfiguration {
 				
 				if(myLine.contains("timeDownload") == true){
 					   String[] arrayTimeDownload = myLine.split("=");
-					   System.out.println(arrayTimeDownload[1]);
-					   
-					   //String date = array[0];
 					   SimpleDateFormat sdfDate = new SimpleDateFormat("HH.mm.ss");
-					   //Date timeParse = new Date();
 					   timeParse = sdfDate.parse(arrayTimeDownload[1]);
-					   System.out.println("day: "+timeParse.getHours()+" month: "+timeParse.getMinutes()+" year: "+timeParse.getSeconds());
+					   //System.out.println("day: "+timeParse.getHours()+" month: "+timeParse.getMinutes()+" year: "+timeParse.getSeconds());
 						
 				   }
 				}

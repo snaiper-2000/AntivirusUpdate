@@ -8,32 +8,44 @@ import java.util.Date;
 public class Start {
 
 	public static void main(String[] args) {
-		//parsing fail confugaration
-		ParseConfiguration parseConfiguration = new ParseConfiguration();
-		String patchFiles =  parseConfiguration.parsePathFail();
-		Date timeParse =  parseConfiguration.parseTimeFail();
 		
-		System.out.println("Путь"+patchFiles);
-		System.out.println("время парсинга"+timeParse);
+		//parsing fail confugaration
+		//ParseConfiguration parseConfiguration = new ParseConfiguration();
+		//String patchFiles =  parseConfiguration.parsePathFail();
+		//Date timeParse =  parseConfiguration.parseTimeFail();
+		
+		//System.out.println("Путь"+patchFiles);
+		//System.out.println("время парсинга"+timeParse);
 		
 		while(true){
-			//input online date
-			Date dateOnline = new Date();
-			//install DD.MM.YY in DateParse
-			timeParse.setDate(dateOnline.getDate());
-			timeParse.setMonth(dateOnline.getMonth());
-			timeParse.setYear(dateOnline.getYear());
-			/*System.out.println("Day:"+dateOnline.getDate()+"Month:"+dateOnline.getMonth()+"Year:"+dateOnline.getYear()+
-					"Hour:"+dateOnline.getHours()+"Minuts:"+dateOnline.getMinutes()+"Second:"+dateOnline.getSeconds());*/
+			ParseConfiguration parseConfiguration = new ParseConfiguration();
+			String patchFiles =  parseConfiguration.parsePathFail();
+			Date timeParse =  parseConfiguration.parseTimeFail();
 			
-			/*System.out.println("Day:"+timeParse.getDate()+"Month:"+timeParse.getMonth()+"Year:"+timeParse.getYear()+
-					"hour: "+timeParse.getHours()+" Minutes: "+timeParse.getMinutes()+" Second: "+timeParse.getSeconds());*/
+			//String patchFilesFull = patchFiles+"\\"+sdfOnline.format(dateOnline)+".zip";
+			String outputFolder = patchFiles;
 			
-			SimpleDateFormat sdfOnline = new SimpleDateFormat("yyy.MM.dd_HH.mm.ss");
+			//DeleteAllFilesFolder deleteAllFilesFolder = new DeleteAllFilesFolder();
+			//deleteAllFilesFolder.deleteAllFilesFolder(outputFolder);
+			
+			//System.out.println("Путь"+patchFiles);
+			//System.out.println("время парсинга"+timeParse);
 	
 			String urlFiles = null;
 			
+			//date current 
+			Date dateOnline = new Date();
+			//format date online
+			SimpleDateFormat sdfOnline = new SimpleDateFormat("yyy.MM.dd_HH.mm.ss");
+			
+			timeParse.setDate(dateOnline.getDate());
+			timeParse.setMonth(dateOnline.getMonth());
+			timeParse.setYear(dateOnline.getYear());
+			
 			if(dateOnline.getTime() == timeParse.getTime()){
+				
+				DeleteAllFilesFolder deleteAllFilesFolder = new DeleteAllFilesFolder();
+				deleteAllFilesFolder.deleteAllFilesFolder(outputFolder);
 				
 				System.out.println("Время совпало!!!");
 				
@@ -43,7 +55,7 @@ public class Start {
 		
 			//String urlFiles = "http://10.17.3.1/nodF01B.nup";
 				String patchFilesFull = patchFiles+"\\"+sdfOnline.format(dateOnline)+".zip";
-				String outputFolder = patchFiles;
+				//String outputFolder = patchFiles;
 		
 				//String testDelete = "C:\\Users\\424\\Desktop\\Test\\test.txt";
 		
@@ -65,13 +77,13 @@ public class Start {
 				}
 			
 				//unzip fail
-				//UnZip unZip = new UnZip();
-				//unZip.unZipIt(patchFilesFull, outputFolder);
+				/*UnZip unZip = new UnZip();
+				unZip.unZipIt(patchFilesFull, outputFolder);
 				 
-				//delete fail
-				//File file = new File(patchFilesFull);
-				//boolean deleteFail = file.delete();
-				//System.out.println(deleteFail);
+				delete fail
+				File file = new File(patchFilesFull);
+				boolean deleteFail = file.delete();
+				System.out.println(deleteFail);*/
 		}
 
 	}
